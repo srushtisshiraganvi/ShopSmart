@@ -18,6 +18,12 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
+    @GetMapping("/test")
+public String test() {
+    return "ShopSmart API is working!";
+}
+
+
     @GetMapping
     public List<Product> getAllProducts(
             @RequestParam(defaultValue = "") String category,
