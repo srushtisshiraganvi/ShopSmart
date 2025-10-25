@@ -1,0 +1,5 @@
+jsp\shopsmart\controller\ProductController.class
+jsp\shopsmart\ShopSmartApplication.class
+jsp\shopsmart\service\ProductService.class
+jsp\shopsmart\model\Product.class
+jsp\shopsmart\repository\ProductRepository.class

@@ -3,13 +3,17 @@ package jsp.shopsmart.controller;
 import jsp.shopsmart.model.Product;
 import jsp.shopsmart.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
+    
 
     @Autowired
     private ProductService service;
@@ -29,11 +33,11 @@ public class ProductController {
         return service.addProduct(product);
     }
 
-    @GetMapping("/{id}")
-    public Product getById(@PathVariable Long id) {
-        return service.getProductById(id).orElseThrow(() -> new RuntimeException("Product not found"));
-    }
-
+@GetMapping("/{id}")
+public Product getById(@PathVariable Long id) {
+    return service.getProductById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+}
     @PutMapping("/{id}")
     public Product update(@PathVariable Long id, @RequestBody Product product) {
         return service.updateProduct(id, product);
