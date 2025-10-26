@@ -15,20 +15,25 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
-    public List<Product> getAllProducts(String category, String sortBy, String sortDir, int page, int size) {
-        Sort sort = Sort.by(sortBy);
-        sort = sortDir.equalsIgnoreCase("desc") ? sort.descending() : sort.ascending();
-        Pageable pageable = PageRequest.of(page, size, sort);
+    // public List<Product> getAllProducts(String category, String sortBy, String sortDir, int page, int size) {
+    //     Sort sort = Sort.by(sortBy);
+    //     sort = sortDir.equalsIgnoreCase("desc") ? sort.descending() : sort.ascending();
+    //     Pageable pageable = PageRequest.of(page, size, sort);
 
-        if (category != null && !category.isEmpty()) {
-            return repository.findAll(pageable)
-                    .stream()
-                    .filter(p -> p.getCategory().equalsIgnoreCase(category))
-                    .toList();
-        }
+    //     if (category != null && !category.isEmpty()) {
+    //         return repository.findAll(pageable)
+    //                 .stream()
+    //                 .filter(p -> p.getCategory().equalsIgnoreCase(category))
+    //                 .toList();
+    //     }
 
-        return repository.findAll(pageable).getContent();
+    //     return repository.findAll(pageable).getContent();
+    // }
+
+    public List<Product> getAllProducts() {
+        return repository.findAll();
     }
+
 
     public Product addProduct(Product product) {
         return repository.save(product);

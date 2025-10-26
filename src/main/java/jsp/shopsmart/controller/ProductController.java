@@ -18,21 +18,27 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @GetMapping("/test")
-public String test() {
-    return "ShopSmart API is working!";
-}
+    // @GetMapping("/test")
+    // public String test() {
+    // return "ShopSmart API is working!";
+    // }
 
+
+    // @GetMapping
+    // public List<Product> getAllProducts(
+    //         @RequestParam(defaultValue = "") String category,
+    //         @RequestParam(defaultValue = "id") String sortBy,
+    //         @RequestParam(defaultValue = "asc") String sortDir,
+    //         @RequestParam(defaultValue = "0") int page,
+    //         @RequestParam(defaultValue = "10") int size) {
+    //     return service.getAllProducts(category, sortBy, sortDir, page, size);
+    // }
 
     @GetMapping
-    public List<Product> getAllProducts(
-            @RequestParam(defaultValue = "") String category,
-            @RequestParam(defaultValue = "id") String sortBy,
-            @RequestParam(defaultValue = "asc") String sortDir,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        return service.getAllProducts(category, sortBy, sortDir, page, size);
-    }
+public List<Product> getAllProducts() {
+    return service.getAllProducts();
+}
+
 
     @PostMapping
     public Product addProduct(@RequestBody Product product) {
@@ -48,6 +54,8 @@ public Product getById(@PathVariable Long id) {
     public Product update(@PathVariable Long id, @RequestBody Product product) {
         return service.updateProduct(id, product);
     }
+
+    
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
