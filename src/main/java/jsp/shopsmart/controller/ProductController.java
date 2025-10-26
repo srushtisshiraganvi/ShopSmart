@@ -35,9 +35,9 @@ public class ProductController {
     // }
 
     @GetMapping
-public List<Product> getAllProducts() {
-    return service.getAllProducts();
-}
+    public List<Product> getAllProducts() {
+      return service.getAllProducts();
+    }
 
 
     @PostMapping
