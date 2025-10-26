@@ -46,27 +46,8 @@ spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-Create the database manually in MySQL:
 
-sql
-Copy code
-CREATE DATABASE shopsmartdb;
-3️⃣ Run the Application
-Using Maven:
 
-bash
-Copy code
-mvn spring-boot:run
-Or from your IDE (e.g. IntelliJ / Eclipse), run:
-
-Copy code
-ShopSmartApplication.java
-🌐 Access the Application
-Action	URL
-Home Page	http://localhost:8080/
-REST Test	http://localhost:8080/products/test
-All Products (UI)	http://localhost:8080/products
-API (JSON)	GET /products, POST /products, PUT /products/{id}, DELETE /products/{id}
 
 📦 API Examples
 ➕ Add Product
@@ -94,15 +75,12 @@ View	Description
 
 💡 Future Enhancements
 Add user authentication (Spring Security)
-
 Integrate React frontend
-
 Add search and pagination
-
 Deploy to AWS EC2 or Render
 
 👩‍💻 Developer
 Srushti Sanjay Shiraganvi
-💼 Aspiring Full Stack Developer | Java | Spring Boot | React | Flutter
+💼 Aspiring Full Stack Developer | Java | Spring Boot | React |DevOps
 📍 Bengaluru, India
-🔗 LinkedIn | GitHub
+]
