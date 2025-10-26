@@ -31,23 +31,24 @@ public class ProductWebController {
         return "redirect:/";
     }
 
-    @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable Long id, Model model) {
-        Product product = productService.getProductById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
-        model.addAttribute("product", product);
-        return "edit-product";
-    }
+   @GetMapping("/edit/{id}")
+public String showEditForm(@PathVariable("id") Long id, Model model) {
+    Product product = productService.getProductById(id)
+            .orElseThrow(() -> new RuntimeException("Product not found"));
+    model.addAttribute("product", product);
+    return "edit-product";
+}
 
-    @PostMapping("/update/{id}")
-    public String updateProduct(@PathVariable Long id, @ModelAttribute Product product) {
-        productService.updateProduct(id, product);
-        return "redirect:/";
-    }
+@PostMapping("/update/{id}")
+public String updateProduct(@PathVariable("id") Long id, @ModelAttribute Product product) {
+    productService.updateProduct(id, product);
+    return "redirect:/";
+}
 
-    @GetMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable Long id) {
-        productService.deleteProduct(id);
-        return "redirect:/";
-    }
+@GetMapping("/delete/{id}")
+public String deleteProduct(@PathVariable("id") Long id) {
+    productService.deleteProduct(id);
+    return "redirect:/";
+}
+
 }
